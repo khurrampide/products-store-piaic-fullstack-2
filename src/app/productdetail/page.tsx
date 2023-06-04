@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { BsCartDash } from 'react-icons/bs'
 
 
-
 const ProductDetail = () => {
   return (
     <section className=' py-8'>
