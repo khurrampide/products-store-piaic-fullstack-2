@@ -10,7 +10,7 @@ import HomeFooterMenus from './components/HomeFooterMenus'
 import {client} from '../../sanity/lib/sanityClients'
 
 export const getProductData = async () =>{
-  console.log("GET")
+  //console.log("GET")
 const res = client.fetch(`*[_type=="product"]{
   title,description
 }`);
@@ -20,8 +20,8 @@ return res;
 export default async function Home() {
 
   const data = await getProductData();
-  console.log(data);
-  console.log("Home")
+  //console.log(data);
+  //console.log("Home")
   return (
     <>
     
