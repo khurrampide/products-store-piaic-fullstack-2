@@ -3,6 +3,7 @@ import Wrapper from './Wrapper'
 import {BsCartDash} from 'react-icons/bs'
 import Image from 'next/image'
 
+
 const Hero = () => {
   return (
     <Wrapper>
