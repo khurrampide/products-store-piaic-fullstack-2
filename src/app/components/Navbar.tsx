@@ -24,7 +24,7 @@ const Navbar = () => {
             <Link href="/">Female</Link>
             <Link href="/">Male</Link>
             <Link href="/">Kids</Link>
-            <Link href="/allproducts">All Products</Link>
+            <Link href="/products">All Products</Link>
         </div>
 
         {/* ********* SEARCH BAR ********* */}

@@ -16,6 +16,7 @@ const ProductCard = ({ title, id, price, image }: IProd) => {
 
   const handleAddToCart = async ()=>{
     console.log("ONCLICK")
+    try{
       const res = await fetch("/api/cart",{
         method: "POST",
         body: JSON.stringify({
@@ -24,17 +25,24 @@ const ProductCard = ({ title, id, price, image }: IProd) => {
         })
       })
 
+      if (!res.ok) {
+        throw new Error("Failed to add to cart");
+      }
+
       const result = await res.json();
       console.log(result);
+    }catch (error) {
+      console.error("Error:", error);
+    }
 
   }
 
   return (
     // CARD START
     <>
-    <div className='flex flex-col'>
-    <Link href={`/productdetail/${id}`}>
-    <div>
+    <div className='flex flex-col hover:scale-110 transition-transform duration-700'>
+    <Link href={`/products/${id}`}>
+    <div className='' >
       
         {/* <Image src="/products/flex-push-button-bomber.png" width={250} height={266} alt='Products' /> */}
         <Image src={urlForImage(image).url()} width={250} height={266} alt='Products' />
@@ -44,7 +52,7 @@ const ProductCard = ({ title, id, price, image }: IProd) => {
         <p className='text-xl mt-4 font-semibold leading-6 tracking-[.03em] text-[#212121]'>{price}</p>
     </div>
     </Link>
-        <button onClick={()=>handleAddToCart()} className='border bg-blue-900 text-white px-3 py-2'>Add to Cart</button>
+        <button onClick={()=>handleAddToCart()} className='border mr-32 hover:scale-90  transition-transform rounded-md mt-4 bg-blue-900 text-white px-3 py-2'>Add to Cart</button>
         </div>
     </>
     // CARD END
