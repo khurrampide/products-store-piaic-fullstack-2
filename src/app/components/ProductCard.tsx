@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -12,8 +13,26 @@ interface IProd{
 }
 
 const ProductCard = ({ title, id, price, image }: IProd) => {
+
+  const handleAddToCart = async ()=>{
+    console.log("ONCLICK")
+      const res = await fetch("/api/cart",{
+        method: "POST",
+        body: JSON.stringify({
+          product_id: id,
+
+        })
+      })
+
+      const result = await res.json();
+      console.log(result);
+
+  }
+
   return (
     // CARD START
+    <>
+    <div className='flex flex-col'>
     <Link href={`/productdetail/${id}`}>
     <div>
       
@@ -23,9 +42,11 @@ const ProductCard = ({ title, id, price, image }: IProd) => {
         {/* <p className='text-base mt-2 font-semibold leading-6 tracking-[.03em] text-[#212121]'>{id}</p> */}
         <p className='text-[15px] mt-2 font-semibold leading-[15px] text-[#888]'>Jackets</p>
         <p className='text-xl mt-4 font-semibold leading-6 tracking-[.03em] text-[#212121]'>{price}</p>
-        <button className='border bg-blue-900 text-white px-3 py-2'>Add to Cart</button>
     </div>
     </Link>
+        <button onClick={()=>handleAddToCart()} className='border bg-blue-900 text-white px-3 py-2'>Add to Cart</button>
+        </div>
+    </>
     // CARD END
   )
 }
