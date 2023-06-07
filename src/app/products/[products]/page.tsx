@@ -1,5 +1,5 @@
 import React from 'react'
-import Wrapper from '../components/Wrapper'
+import Wrapper from '../../components/Wrapper'
 import Image from 'next/image'
 import { BsCartDash } from 'react-icons/bs'
 
