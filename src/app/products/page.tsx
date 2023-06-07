@@ -18,7 +18,7 @@ const getProductData = async () => {
   }`);
   return res;
 };
-
+ 
 interface IProd{
   title:string;
   _id:string;
@@ -38,8 +38,8 @@ const data:IProd[] = await getProductData();
         {/* ALL PRODUCTS CONTAINER - START */}
         <div className="grid grid-cols-4 gap-y-16">
         {
-          data.map((item) =>(
-            <ProductCard title={item.title} id={item._id} price={item.price} image={item.image}/>
+          data.map((item,index) =>(
+            <ProductCard key={index} title={item.title} id={item._id} price={item.price} image={item.image}/>
           ))
         }           
         </div>

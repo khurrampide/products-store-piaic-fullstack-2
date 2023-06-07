@@ -17,6 +17,21 @@ const ProductCard = ({ title, id, price, image }: IProd) => {
   const handleAddToCart = async ()=>{
     console.log("ONCLICK")
     try{
+      const resGet = await fetch("/api/cart",{
+        method: "GET"
+      })
+
+
+      console.log("Before Get")
+      
+      const result2 = await resGet.json();
+      console.log(result2)
+      result2.map((r2:any)=>{
+        console.log(r2)
+      })
+
+      console.log("After Get")
+
       const res = await fetch("/api/cart",{
         method: "POST",
         body: JSON.stringify({
