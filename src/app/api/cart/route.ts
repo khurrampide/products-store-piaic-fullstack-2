@@ -2,11 +2,21 @@ import { NextRequest,NextResponse } from "next/server"
 import {db, cartTable} from '../../../../sanity/lib/drizzle'
 import {v4 as uuid} from 'uuid'
 import { cookies } from "next/headers"
+import { InferModel, eq, sql } from 'drizzle-orm';
 
 export const GET = async (request: NextRequest) => {
     try {
             const res = await db.select().from(cartTable)
+            const data = res.filter(r=>{
+                return r.user_id=="4100e0c3-d7c9-48a4-bac2-31a312ea8b3b"
+            })
+            console.log("Count" + data.length)
+
+            data.map(r=>{
+                console.log(r.user_id + " ** " + r.id)
+            })
             return NextResponse.json({res})
+            
     } catch (error) {
         console.log(error)
         return NextResponse.json({message: "Error in fecting GET API"})
