@@ -8,7 +8,7 @@ import { client } from "../../../sanity/lib/sanityClients";
 import Image from "next/image";
 
 const getProductData = async () => {
-  const res = client.fetch(`*[_type=='product']{
+  const res = client.fetch(`*[_type=='product' && category -> name == 'Female'] {
     title,type,
       _id, price,image,slug,
       category ->{
@@ -31,7 +31,7 @@ interface IProd{
   category: string;
 }
 
-export default async function AllProducts() {
+export default async function FeMale() {
 
   const data:IProd[] = await getProductData();
  
@@ -42,8 +42,7 @@ export default async function AllProducts() {
         <div className="grid grid-cols-4 gap-y-16">
         {
           data.map((item,index) =>(
-            // <ProductCard key={index} prop={data} title={item.title} id={item._id} price={item.price} image={item.image} slug={item.slug} type={item.type} />
-            <ProductCard key={index} p={item} />
+            <ProductCard key={index} title={item.title} id={item._id} price={item.price} image={item.image} slug={item.slug} type={item.type} />
           ))
         }           
         </div>

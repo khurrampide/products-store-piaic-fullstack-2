@@ -21,9 +21,9 @@ const Navbar = () => {
         {/* ********* MENU LINKS ********** */}
 
         <div className='flex gap-[48px] '>
-            <Link href="/">Female</Link>
-            <Link href="/">Male</Link>
-            <Link href="/">Kids</Link>
+            <Link href="/female">Female</Link>
+            <Link href="/male">Male</Link>
+            <Link href="/kids">Kids</Link>
             <Link href="/products">All Products</Link>
         </div>
 
