@@ -1,16 +1,42 @@
-'use client'
+import { client } from "../../../../sanity/lib/sanityClients";
+import { urlForImage } from '../../../../sanity/lib/image'
 import React from 'react'
 import Wrapper from '../../components/Wrapper'
 import Image from 'next/image'
 import { BsCartDash } from 'react-icons/bs'
-import { useRouter } from 'next/router'
+import { Image as IImage } from "sanity";
 
+const getProductDetailDB = async (product: string) => {
+  
+  const query = `*[_type=='product' && slug.current=='` + product + `'] {
+    title,
+      _id, price,image,slug,
+      category ->{
+        name
+      }
+  }`
 
+  const res = client.fetch(query);
+  return res;
+};
 
-const ProductDetail = () => {
-  // console.log("Detail Page")
-  // const route = useRouter();
-  // console.log(route)
+interface IProd {
+  title: string;
+  slug: {
+    current: string,
+    _type: string
+  }
+  _id: string;
+  price: number;
+  image: IImage;
+  category: string;
+}
+
+const ProductDetail = async ({ params }: any) => {
+
+  const { products } = params
+  const data: IProd[] = await getProductDetailDB(products)
+  const { title, _id, price, image, slug } = data[0]
 
   return (
     <section className=' py-8'>
@@ -21,11 +47,11 @@ const ProductDetail = () => {
           <div className='flex gap-8'>
             {/* SMALL IMAGE */}
             <div>
-              <Image src="/products/flex-push-button-bomber.png" width={100} height={100} alt="Image" />
+              <Image src={urlForImage(image).url()} width={100} height={100} alt="Image" />
             </div>
             {/* LARGE IMAGE */}
             <div>
-              <Image src="/products/flex-push-button-bomber.png" width={582} height={625} alt="Image" />
+              <Image src={urlForImage(image).url()} width={582} height={625} alt="Image" />
             </div>
           </div>
 
@@ -36,7 +62,7 @@ const ProductDetail = () => {
           <div className='flex flex-col gap-10 mt-16 ml-4'>
             {/* PRODUCT NAME & CATEGORY - START */}
             <div>
-              <h3 className='font-normal text-[1.625rem] leading-[33px] tracking-[.05em] text-[#212121]'>Flex Push Button Bomber</h3>
+              <h3 className='font-normal text-[1.625rem] leading-[33px] tracking-[.05em] text-[#212121]'>{title}</h3>
               <span className='font-semibold text-[21px] text-black/[.3]' >Jackets</span>
             </div>
             {/* PRODUCT NAME & CATEGORY - END */}
@@ -67,7 +93,7 @@ const ProductDetail = () => {
               <button className=' flex justify-center items-center gap-2 text-base  font-semibold leading-[18px]  border-2  border-black  bg-[#212121] text-white py-2 px-4 '>
                 <BsCartDash className='w-[20px] h-[26px]' /> Add to Cart
               </button>
-              <p className='font-bold text-2xl leading-[30px] tracking-[.1em] text-[#212121]'>$225.00</p>
+              <p className='font-bold text-2xl leading-[30px] tracking-[.1em] text-[#212121]'>${price}</p>
             </div>
 
           </div>
@@ -89,7 +115,7 @@ const ProductDetail = () => {
             <p className='font-light text-base leading-[26px] text-justify tracking-[.05em] text-[#212121]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
           </div>
-          
+
           <div className='flex'>
             <h4 className=' font-bold text-base leading-[19px] tracking-[.05em] text-[#666] mr-[163px] '>PRODUCT CARE</h4>
             <ul>
