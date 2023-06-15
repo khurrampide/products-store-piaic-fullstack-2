@@ -4,8 +4,9 @@ import Image from "next/image";
 
 const Promotions = () => {
   return (
-    <section className="py-20" >
+   // <section className="py-20" >
       <Wrapper>
+        <div className="py-20">
         {/* PROMOTION HEADING - START */}
         <div className="mb-8">
           <p className="mb-8 text-center text-[#0062f5] text-xs font-bold leading-[15px] tracking-[.1em] ">
@@ -18,12 +19,15 @@ const Promotions = () => {
       {/* PROMOTION HEADING - END */}
 
         {/* MAIN PROMOTION WITH IMAGES - START */}
-        <div className="grid grid-cols-2">
-          {/* FIRST COLUMN */}
-          <div className="mr-8  ">
-            {/* FIRST COLUMN PART 1*/}
-            <div className="flex bg-[#d6d6d8] mb-4">
-              {/* FIRST COLUMN PART 1 - LEFT TEXT -  - GET UP TO 60%  */}
+        <div className="flex flex-col md:grid grid-cols-2 gap-4">
+
+          {/* ****************************** FIRST COLUMN ***************************************/}
+          
+          <div className="mr-8">
+            
+            {/* FIRST COLUMN */}
+            <div className=" md:flex bg-[#d6d6d8] mb-4">
+              {/* FIRST COLUMN - LEFT TEXT -  - GET UP TO 60%  */}
               <div className="flex flex-col items-center justify-center mx-8 " >
                 <h3 className="font-bold text-[28px] leading-9">
                   GET UP TO{" "}
@@ -35,7 +39,7 @@ const Promotions = () => {
                   For the summer season
                 </p>
               </div>
-              {/* FIRST COLUMN PART 1 - RIGHT IMAGE */}
+              {/* FIRST COLUMN - RIGHT IMAGE - Get upto 30% off */}
               <div>
                 <Image
                   src="/promotion/60percentoff.webp"
@@ -74,8 +78,10 @@ const Promotions = () => {
               >DINEWEEKENDSALE</button>
             </div>
           </div>
-          {/* SECOND COLUMN */}
-          <div className="flex gap-4">
+
+          {/* ****************************** SECOND COLUMN ***************************************/}
+
+          <div className="flex flex-col md:flex md:flex-row gap-4">
             {/* SECOND COLUMN A */}
             <div className="flex flex-col justify-between pt-6 bg-[#efe1c7] "> 
             <div className="ml-6">
@@ -113,8 +119,9 @@ const Promotions = () => {
 
 
         
+        </div>
       </Wrapper>
-    </section>
+//    </section>
   );
 };
 

@@ -6,8 +6,7 @@ import Image from 'next/image'
 const Hero = () => {
   return (
     <Wrapper>
-    <div className='grid grid-cols-2 ' >
-
+    <div className='flex flex-col md:grid grid-cols-2 ' >
 
   {/* ******************** Hero Left Column Start **********************************
       ****************************************************** */}
@@ -25,13 +24,13 @@ const Hero = () => {
             {/* HERO SECTION SUB-HEADING END */}
 
             {/* SHOPPING CART BUTTON START */}
-            <button className=' flex justify-center items-center gap-2 text-base w-[35%] font-semibold leading-[18px] h-[52px] border-2  border-black  bg-[#212121] text-white p-4'>
+            <button className=' flex justify-center items-center gap-2 text-base w-[80%] md:w-[35%] font-semibold leading-[18px] h-[52px] border-2  border-black  bg-[#212121] text-white p-4'>
             <BsCartDash className='w-[20px] h-[26px]'/> Start Shopping            
             </button>
             {/* SHOPPING CART BUTTON END */}
 
             {/* BRAND NAMES START */}
-            <div className='flex gap-4'>
+            <div className='grid grid-cols-2 md:flex gap-4'>
               <Image src="/bazaar.webp" alt="Bazaar" width={100} height={35} />
               <Image src="/bustle.webp" alt="Bustle" width={100} height={35} />
               <Image src="/versace.webp" alt="Versace" width={100} height={35} />
@@ -40,11 +39,10 @@ const Hero = () => {
             {/* BRAND NAMES END */}
         </div>
 
-  {/* ********************* Hero Right Column Start *********************************
+  {/* ********************* Hero Right Column Start - PICTURE & CIRCLE *********************************
       ****************************************************** */}
 
-        {/* Hero Right Column Start */}
-        <div className='bg-[#FFECE3] rounded-full'>
+        <div className='hidden md:flex bg-[#FFECE3] rounded-full'>
         <Image src="/hero-sec-picture.webp" alt="Bazaar" width={650} height={650} />
         {/* <Image className='-mt-[30px] -mr-[69px]' src="/hero-sec-picture.png" alt="Bazaar" width={700} height={700} /> */}
           </div>

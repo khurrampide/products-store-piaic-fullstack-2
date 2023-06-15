@@ -5,23 +5,23 @@ import { RiDeleteBin6Line } from 'react-icons/ri'
 
 const ShoppingCart = () => {
     return (
-        <section>
+
             <Wrapper>
                 <div className='p-12'>
                     <div className='text-2xl font-bold'>Shopping Cart</div>
 
-                    <div className='flex gap-16  '>
+                    <div className='grid grid-cols-1 md:flex gap-16  '>
                         {/* CARD LEFT SIDE */}
-                        <div className='flex gap-8 mt-8  '>
+                        <div className='grid grid-col-1 md:flex gap-8 mt-8  '>
                             {/* CARD IMAGE */}
                             <div>
                                 <Image className='rounded-lg' src="/cart-1.png" alt="" width={154} height={190} />
 
                             </div>
                             {/* CARD DETAILS */}
-                            <div className='flex flex-col justify-between '>
+                            <div className='flex flex-col justify-between gap-4'>
                                 <div className='flex justify-between items-center '>
-                                    <div className='font-light text-[1.3rem] leading-[25px] text-[#212121] pr-[150px]'>Brushed Raglan Sweatshirt</div>
+                                    <div className='font-light text-[1.3rem] leading-[25px] text-[#212121] md:pr-[150px]'>Brushed Raglan Sweatshirt</div>
                                     <div><RiDeleteBin6Line className='text-xl' /></div>
                                 </div>
                                 <div className='leading-16px text-[#666] font-semibold text-base'>Dress</div>
@@ -58,7 +58,6 @@ const ShoppingCart = () => {
 
                 </div>
             </Wrapper>
-        </section>
     )
 }
 

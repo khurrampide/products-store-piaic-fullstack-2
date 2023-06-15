@@ -14,13 +14,13 @@ const Navbar = () => {
 
         <div>
             <Link href="/"> 
-                <Image src={Logo} alt="Logo" />
+                <Image src={Logo} alt="Logo" width={140} />
             </Link>
         </div>
 
         {/* ********* MENU LINKS ********** */}
 
-        <div className='flex gap-[48px] '>
+        <div className='hidden md:flex gap-[48px] '>
             <Link href="/female">Female</Link>
             <Link href="/male">Male</Link>
             <Link href="/kids">Kids</Link>
@@ -29,7 +29,7 @@ const Navbar = () => {
 
         {/* ********* SEARCH BAR ********* */}
 
-        <div className='flex items-center gap-2'>
+        <div className='hidden md:flex items-center gap-2'>
             <BsSearch/>
             <input className='border border-gray-500 w-[300px] h-7 rounded-md' type="text"  placeholder='Search something...'/>
         </div>

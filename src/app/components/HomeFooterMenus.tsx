@@ -9,9 +9,10 @@ const HomeFooterMenus = () => {
     <section>
       {/* FOOTER MENU START */}
       <Wrapper>
-        <div className="grid grid-cols-4 pb-16">
+        <div className="flex flex-col md:grid md:grid-cols-4 gap-16 ">
+
           {/* FIRST COLUMN */}
-          <div className="flex flex-col justify-between w-[80%]">
+          <div className="gap-8 flex flex-col justify-between w-[80%]">
             <Link href="/">
               <Image src={Logo} width={180} height={30} alt="Logo" />
             </Link>
@@ -88,7 +89,7 @@ const HomeFooterMenus = () => {
           {/* THIRD COLUMN */}
           <div>
             <h3 className="font-bold text-[1.2rem] leading-[19px] tracking-[.02em] text-[#666]">
-            Support
+              Support
             </h3>
             <ul>
               <li className="font-normal text-base leading-[22px] text-[#666] mt-[25px]">Support Carrer</li>
@@ -99,7 +100,7 @@ const HomeFooterMenus = () => {
           {/* FOURTH COLUMN */}
           <div>
             <h3 className="font-bold text-[1.2rem] leading-[19px] tracking-[.02em] text-[#666]">
-            Contact
+              Contact
             </h3>
             <ul>
               <li className="font-normal text-base leading-[22px] text-[#666] mt-[25px]">Whatsapp</li>
@@ -112,16 +113,17 @@ const HomeFooterMenus = () => {
 
       {/* COPYRIGHT SECTION START */}
 
-      <div className="  mt-[2rem] border border-t-2">
-        <Wrapper>
-          <div className="grid grid-cols-3 ">
-          <p className="my-6 font-normal text-base leading-[22px] text-[#666]">Copyright © 2022 Dine Market</p>
-          <p className="my-6 font-normal  text-base leading-[22px] text-[#666]">Design by. <span className="font-bold leading-[15px] text-[#212121]">Weird Design Studio</span></p>
-          <p className="my-6 font-normal text-base leading-[22px] text-[#666]">Code by. <span className="font-bold leading-[15px] text-[#212121]">shabrina12 on github</span></p>
 
+      <Wrapper>
+        <div className="  mt-[2rem] border border-t-2 py-2 ">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <p className="font-normal text-base leading-[22px] text-[#666]">Copyright © 2022 Dine Market</p>
+            <p className="font-normal  text-base leading-[22px] text-[#666]">Design by. <span className="font-bold leading-[15px] text-[#212121]">Weird Design Studio</span></p>
+            <p className="font-normal text-base leading-[22px] text-[#666]">Code by. <span className="font-bold leading-[15px] text-[#212121]">shabrina12 on github</span></p>
           </div>
-        </Wrapper>
-      </div>
+        </div>
+      </Wrapper>
+
       {/* COPYRIGHT SECTION END */}
     </section>
   );

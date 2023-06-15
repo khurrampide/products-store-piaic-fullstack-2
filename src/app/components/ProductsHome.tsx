@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const ProductsHome = () => {
   return (
-    <section className='py-16'>
+    //<section className='py-16'>
         <Wrapper>
         {/* PRODUCTS - START*/}
         {/* PRODUCTS HEADING - START*/}
@@ -24,18 +24,18 @@ const ProductsHome = () => {
             <Link className='transition-transform hover:scale-110 duration-700' href="/">
             <div>
                 <Image src="/home-product1.png" alt="Product" width={380} height={400} />
-                <p className="text-[18px] tracking-[.03em] text-[#212121] font-semibold mt-2 leading-6">Flex Sweatpants</p>
-                <p className="text-[19px] tracking-[.03em] text-[#212121] font-semibold mt-2 leading-6">$175</p>
+                <p className="text-[18px] text-center tracking-[.03em] text-[#212121] font-semibold mt-2 leading-6">Flex Sweatpants</p>
+                <p className="text-[19px] text-center tracking-[.03em] text-[#212121] font-semibold mt-2 leading-6">$175</p>
             </div>
             </Link>
-            <Link className='transition-transform hover:scale-110 duration-700' href="/">
+            <Link className='hidden md:flex transition-transform hover:scale-110 duration-700' href="/">
             <div>
                 <Image src="/home-product2.png" alt="Product" width={380} height={400} />
                 <p className="text-[18px] tracking-[.03em] text-[#212121] font-semibold mt-2 leading-6">Flex Sweatpants</p>
                 <p className="text-[19px] tracking-[.03em] text-[#212121] font-semibold mt-2 leading-6">$175</p>
             </div>
             </Link>
-            <Link className='transition-transform hover:scale-110 duration-700' href="/">
+            <Link className='hidden md:flex transition-transform hover:scale-110 duration-700' href="/">
             <div>
                 <Image src="/home-product3.png" alt="Product" width={380} height={400} />
                 <p className="text-[18px] tracking-[.03em] text-[#212121] font-semibold mt-2 leading-6">Flex Sweatpants</p>
@@ -48,7 +48,7 @@ const ProductsHome = () => {
 
         {/* PRODUCTS - END*/}
         </Wrapper>
-    </section>
+    //</section>
   )
 }
 
