@@ -17,9 +17,7 @@ interface IProd{
   image:IImage;
 }
 
-const ProductCard = (p: IProd) => {
-  const {title, id, price, image, slug, type} = p
-  console.log("Title: " + title)
+const ProductCard = ({ title, id, price, image, slug, type }: IProd) => {
 
   const handleAddToCart = async ()=>{
     console.log("ONCLICK")

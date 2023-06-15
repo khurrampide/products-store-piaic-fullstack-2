@@ -42,8 +42,7 @@ export default async function AllProducts() {
         <div className="grid grid-cols-4 gap-y-16">
         {
           data.map((item,index) =>(
-            // <ProductCard key={index} prop={data} title={item.title} id={item._id} price={item.price} image={item.image} slug={item.slug} type={item.type} />
-            <ProductCard key={index} p={item} />
+            <ProductCard key={index} title={item.title} id={item._id} price={item.price} image={item.image} slug={item.slug} type={item.type} />
           ))
         }           
         </div>
