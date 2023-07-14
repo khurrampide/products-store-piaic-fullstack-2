@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import { Image as IImage} from "sanity";
 import { urlForImage } from '../../../sanity/lib/image';
+import AddtoCart from './AddtoCart';
 
 interface IProd{
   title:string;
@@ -60,7 +61,7 @@ const ProductCard = ({ title, id, price, image, slug, type }: IProd) => {
   return (
     // CARD START
     <>
-    <div className='flex flex-col hover:scale-105 transition-transform duration-700'>
+    <div className='flex flex-col transition-transform duration-700'>
 
       {/* LINK WITH SLUG TO CARD */}
     <Link href={`/products/${slug.current}`}>
@@ -71,10 +72,12 @@ const ProductCard = ({ title, id, price, image, slug, type }: IProd) => {
         <p className='text-base mt-2 font-semibold leading-6 tracking-[.03em] text-[#212121]'>{title}</p>
         <p className='text-[15px] mt-2 font-semibold leading-[15px] text-[#888]'>{type}</p>
         <p className='text-xl mt-4 font-semibold leading-6 tracking-[.03em] text-[#212121]'>${price}</p>    
+        
     </div>
     {/* CARD END */}
 
     </Link>
+        <AddtoCart/>
         <button onClick={()=>handleAddToCart()} className='border mr-32 hover:scale-90  transition-transform rounded-md mt-4 bg-blue-900 text-white px-3 py-2'>Add to Cart</button>
         </div>
     </>

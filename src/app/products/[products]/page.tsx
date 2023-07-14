@@ -5,9 +5,13 @@ import Wrapper from '../../components/Wrapper'
 import Image from 'next/image'
 import { BsCartDash } from 'react-icons/bs'
 import { Image as IImage } from "sanity";
+import AddtoCart from "@/app/components/AddtoCart";
+// import { useDispatch } from 'react-redux'
+// import { cartActions } from '@/store/slice/cartSlice'
 
 const getProductDetailDB = async (product: string) => {
   
+
   const query = `*[_type=='product' && slug.current=='` + product + `'] {
     title,
       _id, price,image,slug,
@@ -33,7 +37,10 @@ interface IProd {
 }
 
 const ProductDetail = async ({ params }: any) => {
-
+  // const dispatch = useDispatch()
+  // const addItem = ()=> {
+  //   dispatch(cartActions.addtoCart({quantity:1}))
+  // }
   const { products } = params
   const data: IProd[] = await getProductDetailDB(products)
   const { title, _id, price, image, slug } = data[0]
@@ -90,9 +97,10 @@ const ProductDetail = async ({ params }: any) => {
             </div>
             {/* ADD TO CART & PRICE*/}
             <div className='flex gap-4 items-center'>
-              <button className=' flex justify-center items-center gap-2 text-base  font-semibold leading-[18px]  border-2  border-black  bg-[#212121] text-white py-2 px-4 '>
+              <AddtoCart/>
+              {/* <button  className=' flex justify-center items-center gap-2 text-base  font-semibold leading-[18px]  border-2  border-black  bg-[#212121] text-white py-2 px-4 '>
                 <BsCartDash className='w-[20px] h-[26px]' /> Add to Cart
-              </button>
+              </button> */}
               <p className='font-bold text-2xl leading-[30px] tracking-[.1em] text-[#212121]'>${price}</p>
             </div>
 
